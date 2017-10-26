@@ -5,7 +5,8 @@
     <title>Users List</title>
   </head>
   <body>
-    <h1>USER:</h1>
+    <h1>USERS:</h1>
+    <a href="/">go back home</a> || <a href="/cities/">list cities</a> || <a href="/users/">list users</a><br><br>
     <% for(let i = 0; i<users.length; i++){ %>
       <%= users[i].id%>. 
       <%= users[i].username%>
@@ -15,6 +16,5 @@
     <% } %>
     <br>
     <a href="/users/add">add user</a><br>
-    <a href="/">go back home</a><br>
   </body>
 </html>

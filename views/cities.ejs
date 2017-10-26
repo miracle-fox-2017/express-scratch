@@ -5,7 +5,8 @@
     <title>Cities List</title>
   </head>
   <body>
-    <h1>CITIES</h1>
+    <h1>CITIES:</h1>
+    <a href="/">go back home</a> || <a href="/cities/">list cities</a> || <a href="/users/">list users</a><br><br>
     <% for(let i = 0; i<cities.length; i++){ %>
       <%= i+1%>. 
       <%= cities[i].name%> 
@@ -13,7 +14,7 @@
     <% } %>
     <br>
     <a href="/cities/add">add cities</a><br>
-    <a href="/">go back home</a><br>
+    <br>
     
   </body>
 </html>
