@@ -1,0 +1,23 @@
+{
+  "name": "index",
+  "version": "1.0.0",
+  "description": "hacktiv8",
+  "main": "miracle",
+  "scripts": {
+    "test": "tes web"
+  },
+  "repository": {
+    "type": "git",
+    "url": "rezaalfarabi"
+  },
+  "keywords": [
+    "belajar",
+    "express"
+  ],
+  "author": "reza",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2"
+  }
+}
