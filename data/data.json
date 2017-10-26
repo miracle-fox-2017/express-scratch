@@ -18,5 +18,9 @@
     "id_cities" : 2,
     "name": "Bandung",
     "province": "Jawa Barat"
+  }, {
+    "id_cities" : 3,
+    "name": "semarang",
+    "province": "Jawa Timur"
   }]
 }
