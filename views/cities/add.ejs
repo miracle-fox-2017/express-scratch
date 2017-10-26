@@ -1,0 +1,16 @@
+<%-include('../partials/head')%>
+<%- include('../partials/menu')%>
+
+	<h3>Insert Data Kota Baru</h3>
+<form action="/cities/add" method = "POST">
+  Name:<br>
+  <input type="text" name="name">
+  <br>
+  Province:<br>
+  <input type="text" name="province">
+  <br><br>
+  <input type="submit" value="Submit">
+</form> 
+
+
+<%-include('../partials/footer')%>

@@ -1,0 +1,19 @@
+<%- include('../partials/head',{})%>
+<%- include('../partials/menu')%>
+
+	<h3>Edit Data User </h3>
+<form action="/users/edit/<%=edit.id%>" method = "POST">
+  Username:<br>
+  <input type="text" name="username" value="<%=edit.username%>">
+  <br>
+  Password:<br>
+  <input type="text" name="password" value="<%=edit.password%>">
+  <br>
+  Email:<br>
+  <input type="text" name="email" value="<%=edit.email%>">
+  <br><br>
+  <input type="submit" value="Submit">
+</form> 
+
+
+<%- include('../partials/footer',{})%>
