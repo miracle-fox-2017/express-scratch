@@ -1,0 +1,18 @@
+{
+  "users": [{
+  "username": "Peterpan",
+   "password": "peterPansy",
+  "email": "peterpan@neverland.com"
+  }, {
+  "username": "Captain Hook",
+  "password": "Hook",
+  "email": "captain@pirates.com"
+  }],
+  "cities": [{
+  "name": "Neverland",
+  "province": "Never in Land"
+  }, {
+  "name": "Sea",
+  "province": "Carribean"
+  }]
+}
