@@ -5,7 +5,7 @@ class Model {
 		this.file = file;
 	}
 
-	getFileJSON(callback) {
+	getDataFromJSON(callback) {
 		if (this.file !== null || this.file !== '') {
 			fs.readFile(this.file, (err, data) => {
 		      if (err) {
@@ -15,6 +15,14 @@ class Model {
 		      callback(JSON.parse(data.toString()));
 		   });
 		}
+	}
+
+	writeDataToJSON(data) {
+		fs.writeFile(this.file, JSON.stringify(data),(err) => {
+			if (err) {
+				throw err;
+			}
+		})
 	}
 }
 
