@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Add new user</title>
+	<style>
+		.form-field {
+			widows: 50%;
+		}
+	</style>
+</head>
+<body>
+	<% if (typeof editId !== 'undefined') { %>
+		<h2>Editing User <%= editId %></h2>
+	<% } %>
+
+	<form method="post" action="<%= (typeof editId !== 'undefined') ? '/users/modify' : '/users/create' %>">
+		<% if (typeof editId !== 'undefined') { %>
+			<input type="hidden" id="id" name="id" value="<%= editId  %>"/>
+		<% } else { %>
+			<input type="hidden" id="id" name="id" value="<%= allData.users.length > 0 ? allData.users.length + 1 : 0  %>"/>
+		<% } %>
+		<div class="field-wrapper">
+			<span>Username</span>
+			<input class="form-field" type="text" id="username" name="username">
+		</div>
+		<br>
+		
+		<div class="field-wrapper">
+			<span>Password</span>
+			<input class="form-field" type="password" id="password" name="password">
+		</div>
+		<br>
+
+		<div class="field-wrapper">
+			<span>Email</span>
+			<input class="form-field" type="email" id="email" name="email">
+		</div>
+		<br>
+
+		<button>Submit</button>
+	</form>
+</body>
+</html>
