@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <% include ./partial/menu.ejs %>
+    <div class="form">
+      <form class="form-edit" action="/cities/add" method="post">
+        <input type="text" name="name" placeholder="City Name"><br>
+        <input type="text" name="province" placeholder="Province"><br>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </body>
+</html>
