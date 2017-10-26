@@ -80,12 +80,48 @@ app.get('/cities', function (req, res) {
 })
 
 app.post('/users/create', function (req,res){
-  console.log(req.body)
   model.getData( data =>{
     data.users.push(req.body)
     model.writeData(data);
-    res.redirect('/users')
+    res.redirect('../users')
   })
+})
+
+app.post('/users/edit', function (req,res){
+  model.getData( data =>{
+    console.log(req.body.id)
+    data.users.splice(Number(req.body.id-1),1,req.body)
+    model.writeData(data);
+    res.redirect('../users')
+  })
+})
+
+app.get('/users/edit/:id', function (req, res) {
+  
+  model.getData( data =>{
+    for (let i = 0 ; i<data.users.length ; i++){
+       
+        if(data.users[i].id == req.params.id){
+          res.render('edit',data.users[i])
+        }
+    }
+  })  
+})
+
+app.get('/users/delete/:id', function (req, res) {
+  
+  model.getData( data =>{
+    let deleteUser ;
+    for (let i = 0 ; i<data.users.length ; i++){
+       
+        if(data.users[i].id == req.params.id){
+          deleteUser = i;
+        }
+    }
+    data.users.splice(Number(deleteUser),1)
+    model.writeData(data);
+    res.redirect('/users')
+  })  
 })
 
 app.listen(3000, function () {
