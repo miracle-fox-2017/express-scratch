@@ -20,5 +20,12 @@ router.get('/',(req,res)=>{
   })
 })
 
+// DELETE
+router.get('/delete/:id',(req,res)=>{
+  model.destroy(req.params.id,()=>{
+    res.redirect('/cities')
+  })
+})
+
 
 module.exports = router

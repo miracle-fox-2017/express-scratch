@@ -49,6 +49,24 @@ class Cities{
     })
   }
 
+  destroy(id,cb){
+    this.getFile((data)=>{
+
+      let container = []
+      for(let i=0; i<data[0].cities.length; i++){
+        if(data[0].cities[i].id_cities == id){
+          container.push(i)
+        }
+      }
+      let for_destroy = data[0].cities.splice(container,1)
+      console.log('>>>>OUT<<<<', for_destroy);
+      if(for_destroy.length == 1){
+        this.saveFile(data)
+      }
+      cb(data)
+    })
+  }
+
 }
 
 let cities = new Cities('./data/data.json')
