@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>User</title>
+  </head>
+  <body>
+    <h1> User  </h1>
+
+    <% for(let i = 0; i < data.length; i++){ %>
+      <%= data[0] %>
+    <% } %>
+
+
+    <table>
+      <thead>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Complete</th>
+        <th>Password</th>
+        <th>Email</th>
+      </thead>
+      <% for(let i = 0; i < data.length; i++){ %>
+      <tbody>
+        <td><%= data[i].id %></td>
+        <td><%= data[i].username %></td>
+        <td><%= data[i].complete %></td>
+        <td><%= data[i].password %></td>
+        <td><%= data[i].email %></td>
+      </tbody>
+      <% } %>
+    </table>
+
+
+  </body>
+</html>
