@@ -1,27 +1,67 @@
 const File = require('./readfile')
 
 class User {
-  static addUser(dataInput) {
+  static add(data, callback) {
     File.readFile(dataJSON => {
-      // console.log(dataJSON.users[0].id);
       let obj = {
         id: dataJSON.users[dataJSON.users.length-1].id + 1,
-        username: dataInput.username,
-        password: dataInput.password,
-        email: dataInput.email
+        username: data.username,
+        password: data.password,
+        email: data.email
       }
-      // let a = JSON.stringify(obj)
-      console.log(obj);
-      // console.log(dataJSON);
+
       dataJSON.users.push(obj)
-      // console.log(dataJSON);
       let newData = JSON.stringify(dataJSON)
-      // console.log(newData);
-      File.writeFile(newData)
+      File.writeFile(newData, (err) => {
+        callback(err)
+      })
+    })
+  }
+
+  static findById(idUser, callback) {
+    File.readFile(dataJSON => {
+      for(let i = 0; i < dataJSON.users.length; i++) {
+        if(dataJSON.users[i].id == idUser) {
+          callback(dataJSON.users[i])
+        }
+      }
+    })
+  }
+
+  static edit(idUser, data, callback) {
+    File.readFile(dataJSON => {
+      let obj = {
+        id: idUser,
+        username: data.username,
+        password: data.password,
+        email: data.email
+      }
+
+      for(let i = 0; i < dataJSON.users.length; i++) {
+        if(dataJSON.users[i].id == idUser) {
+          dataJSON.users.splice(i, 1, obj)
+          let newData = JSON.stringify(dataJSON)
+          File.writeFile(newData, (err) => {
+            callback(err)
+          })
+        }
+      }
+    })
+  }
+
+  static delete(idUser, callback) {
+    File.readFile(dataJSON => {
+      for(let i = 0; i < dataJSON.users.length; i++) {
+        if(dataJSON.users[i].id == idUser) {
+          dataJSON.users.splice(i, 1)
+          let newData = JSON.stringify(dataJSON)
+          File.writeFile(newData, (err) => {
+            callback(err)
+          })
+        }
+      }
     })
   }
 }
-// let file = new File('../data.json')
-// User.addUser()
 
 module.exports = User;

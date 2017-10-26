@@ -12,19 +12,18 @@ class File {
         console.log(err);
       } else {
         let dataJSON = JSON.parse(data)
-        // console.log(dataJSON);
         callback(dataJSON)
       }
     })
   }
 
-  writeFile(data) {
-    // console.log(data);
+  writeFile(data, callback) {
     fs.writeFile(this.file, data, 'utf8', (err) => {
       if(err) {
         console.log('Failed write data');
         console.log(err);
       }
+      callback(err)
     })
   }
 }
