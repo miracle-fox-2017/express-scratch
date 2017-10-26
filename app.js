@@ -11,6 +11,7 @@ silakan menentukan property dan value dari object tersebut asalkan relevan denga
 URL --> http://localhost:3000/cities
 menampilkan data cities berupa object.
 silakan menentukan property dan value dari object cities juga untuk release 0 ini.
+
 - Release 1
 Buatlah file data.json yang isinya ada 2 object yaitu users dan cities.
 contoh :
@@ -35,4 +36,11 @@ contoh :
 Setelah itu, buatlah code untuk membaca file dari data.json
 sehingga routing yang tadinya menampilkan object yang dibuat sendiri,
 sekarang menampilkan data yang ada di-file data.json menggunakan view engine .ejs
+
+Release 2
+Buatlah routing untuk add, edit dan delete untuk /users dan /cities
+contoh:
+URL --> http://localhost:3000/users/add (untuk routing add users)
+URL --> http://localhost:3000/users/edit/:id (untuk routing edit users dengan mengirimkan id data)
+URL --> http://localhost:3000/users/delete/:id (untuk routing delete users dengan mengirimkan id data)
 **/
