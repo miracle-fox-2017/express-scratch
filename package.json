@@ -1,0 +1,27 @@
+{
+  "name": "express-scratch",
+  "version": "1.0.0",
+  "description": "EXPRESS FROM SCRATCH V.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miracle-fox-2017/express-scratch.git"
+  },
+  "keywords": [
+    "express"
+  ],
+  "author": "aditreza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miracle-fox-2017/express-scratch/issues"
+  },
+  "homepage": "https://github.com/miracle-fox-2017/express-scratch#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2"
+  }
+}
