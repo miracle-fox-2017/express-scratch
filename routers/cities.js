@@ -15,7 +15,7 @@ router.post('/', (req, res)=>{
 })
 
 router.get('/edit/:id',(req, res)=>{
-  Cities.getIdCities(req.params.id,dataCity =>{
+  Cities.getIdCities(req.params.id, dataCity =>{
     res.render('editCities', dataCity)
   })
 })
