@@ -10,8 +10,16 @@
 	</style>
 </head>
 <body>
-	<form method="post" action="/users/create">
-		<input type="hidden" id="id" name="id" value="<%= users.length + 1 %>"/>
+	<% if (typeof editId !== 'undefined') { %>
+		<h2>Editing User <%= editId %></h2>
+	<% } %>
+
+	<form method="post" action="<%= (typeof editId !== 'undefined') ? '/users/modify' : '/users/create' %>">
+		<% if (typeof editId !== 'undefined') { %>
+			<input type="hidden" id="id" name="id" value="<%= editId  %>"/>
+		<% } else { %>
+			<input type="hidden" id="id" name="id" value="<%= allData.users.length > 0 ? allData.users.length + 1 : 0  %>"/>
+		<% } %>
 		<div class="field-wrapper">
 			<span>Username</span>
 			<input class="form-field" type="text" id="username" name="username">

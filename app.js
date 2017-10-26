@@ -27,19 +27,55 @@ app.get('/users', (req, res) => {
 })
 
 app.get('/users/add', (req, res) => {
-   model.getDataFromJSON(function(data) {
-    res.render('new-user', data);
+  model.getDataFromJSON(function(data) {
+    res.render('new-user', {allData: data});
+  })  
+})
+
+app.get('/users/edit/:id', (req, res) => {
+    model.getDataFromJSON(function(data) {
+      res.render('new-user', {allData: data, editId: req.params.id});
+    })
+})
+
+app.get('/users/delete/:id', (req, res) => {
+    model.getDataFromJSON(function(data) {
+       let deletedIndex = 0;
+       let finalData = data;
+
+       for (var i = 0; i < data.users.length; i++) {
+        
+        if (data.users[i].id === req.params.id) {
+          data.users.splice(i, 1);
+        } 
+       }
+
+      model.writeDataToJSON(data);
+      res.redirect('/users');
+    })
+})
+
+app.post('/users/modify', (req, res) => {
+  model.getDataFromJSON(function(data) {
+    for (var i = 0; i < data.users.length; i++) {
+      if (data.users[i].id === req.body.id) {
+        data.users[i].username =  req.body.username;
+        data.users[i].password =  req.body.password;
+        data.users[i].email =  req.body.email;
+      }
+    }
+
+    model.writeDataToJSON(data);
+    res.redirect('/users');
   })  
 })
 
 app.post('/users/create', (req, res) => {
   model.getDataFromJSON(function(data) {
     data.users.push(req.body);
-    // res.send(data);
-    res.redirect('/users');
     model.writeDataToJSON(data);
+    res.redirect('/users');
   })
-  
 })
 
 app.get('/cities', (req, res) => {
