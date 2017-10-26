@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <title>
+        Edit City
+    </title>
+</head>
+
+<body>
+    <header>
+        <h3>
+            Edit Data City
+        </h3>
+    </header>
+    <a href="/">Home</a>
+    <div class="menu-edit">
+        <form action="/cities/edit/<%= dataCity.id%>" method="POST">
+            Nama : <br>
+            <input type="text" name="name" value="<%= dataCity.name%>" /> <br> Province : <br>
+            <input type="text" name="province" value="<%= dataCity.province%>"><br>
+
+            <br>
+            <input type="submit" value="Save" />
+
+        </form>
+    </div>
+</body>
+
+</html>
