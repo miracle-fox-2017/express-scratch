@@ -17,12 +17,15 @@ class Model{
     
     //push ke users
     obj.users.push(newInput);
-    let string = JSON.stringify(obj);
-    cb(obj);
+    let string = JSON.stringify(obj, undefined, 2);
+
     
     fs.writeFile(file, string, function(err){
       if(err){
         console.log('something wrong');
+      } else{
+        console.log('no err');
+        cb(obj);
       }
     })
     
@@ -41,12 +44,15 @@ class Model{
     obj.users.splice(pos,1,newInput)
     // console.log(obj);
     
-    let string = JSON.stringify(obj);
-    cb(obj);
+    let string = JSON.stringify(obj, undefined, 2);
+
     
     fs.writeFile(file, string, function(err){
       if(err){
         console.log('something wrong');
+      } else{
+        console.log('no err');
+        cb(obj);
       }
     })
     
@@ -68,12 +74,15 @@ class Model{
       obj.users.splice(pos,1);
       // console.log(obj.users);
       
-      let string = JSON.stringify(obj);
-      cb(obj);
+      let string = JSON.stringify(obj, undefined, 2);
+
       
       fs.writeFile(file, string, function(err){
         if(err){
           console.log('something wrong');
+        } else{
+          console.log('no err');
+          cb(obj);
         }
       })
       
@@ -90,12 +99,14 @@ class Model{
     
     //push ke users
     obj.cities.push(newInput);
-    let string = JSON.stringify(obj);
-    cb(obj);
+    let string = JSON.stringify(obj, undefined, 2);
     
     fs.writeFile(file, string, function(err){
       if(err){
         console.log('something wrong');
+      } else{
+        console.log('no err');
+        cb(obj);
       }
     })
     
@@ -114,12 +125,14 @@ class Model{
     obj.cities.splice(pos,1,newInput)
     // console.log(obj);
     
-    let string = JSON.stringify(obj);
-    cb(obj);
+    let string = JSON.stringify(obj, undefined, 2);
     
     fs.writeFile(file, string, function(err){
       if(err){
         console.log('something wrong');
+      } else{
+        console.log('no err');
+        cb(obj);
       }
     })
     
@@ -141,12 +154,15 @@ class Model{
       obj.cities.splice(pos,1);
       // console.log(obj.users);
       
-      let string = JSON.stringify(obj);
-      cb(obj);
+      let string = JSON.stringify(obj, undefined, 2);
+
       
       fs.writeFile(file, string, function(err){
         if(err){
           console.log('something wrong');
+        } else{
+          console.log('no err');
+          cb(obj);
         }
       })
       
