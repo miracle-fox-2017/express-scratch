@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <%include ./partials/head%>
+    <title>Edit Cities</title>
+  </head>
+  <body>
+      <%include ./partials/menu%>
+      <div class="uk-section">
+          <div class="uk-container">
+              <form action="/add" method="post">
+                    <div class="uk-margin">
+                        <input class="uk-input uk-form-width-medium" name="id" type="text">
+                    </div>
+                    <div class="uk-margin">
+                        <input class="uk-input uk-form-width-medium" name="name" type="text">
+                    </div>
+                    <div class="uk-margin">
+                        <input class="uk-input uk-form-width-medium" name="province" type="text">
+                    </div>
+                    <p uk-margin>
+                        <button class="uk-button uk-button-default uk-button-small">Edit</button>
+                    </p>
+              </form>
+          </div>
+      </div>
+  </body>
+</html>
