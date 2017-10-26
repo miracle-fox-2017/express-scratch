@@ -44,3 +44,32 @@ URL --> http://localhost:3000/users/add (untuk routing add users)
 URL --> http://localhost:3000/users/edit/:id (untuk routing edit users dengan mengirimkan id data)
 URL --> http://localhost:3000/users/delete/:id (untuk routing delete users dengan mengirimkan id data)
 **/
+
+
+const express = require ('express')
+const bodyParser = require('body-parser')
+const app = express()
+
+app.get('/',function(req, res){
+  res.send('Welcome To Express My App [IDABAGUS_ANGGA]')
+})
+
+app.get('/users',function(req, res){
+  let obj = {
+    idNum : 1,
+    name  : "Angga",
+  }
+  res.send(obj)
+})
+
+app.get('/cities',function(req, res){
+  let obj = {
+    name : 'Bandung',
+    province  : "Jawa Barat",
+  }
+  res.send(obj)
+})
+
+app.listen(3000,function(){
+  console.log('Example app listening on port 3000!')
+})
