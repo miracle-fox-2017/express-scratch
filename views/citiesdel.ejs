@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>USERS</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>PROVINCE</th>
+      </tr>
+      <% for(let x = 0; x < dataCities.length; x++) { %>
+        <tr>
+          <td><%= dataCities[x].id %></td>
+          <td><%= dataCities[x].name %></td>
+          <td><%= dataCities[x].province %></td>
+          <td><a href="/cities/delete/<%= dataCities[x].id %>">delete</a></td>
+        </tr>
+      <% } %>
+    </table>
+    <a href="/">HOME</a>
+  </body>
+</html>
