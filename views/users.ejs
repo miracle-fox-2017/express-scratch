@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User</title>
+</head>
+<body>
+    <a href="/add">Tambah Data</a>
+    <table border="1" style="margin:20px">
+        <tr>
+            <th>No</th>
+            <th>Usernama</th>
+            <th>Email</th>
+            <th>Edit</th>
+        </tr>
+        <% 
+
+        let no = 1;
+        
+        users.forEach(function(user){ 
+            
+        %>
+        <tr>
+            <td>
+                <%= no %>
+            </td>
+            <td>
+                <%= user.username %>
+            </td>
+            <td>
+                <%= user.email %>
+            </td>
+            <td>
+                <a href="/edit/<%= user.id %>">edit</a>
+            </td>
+        </tr>
+        <%
+
+        no++;
+        
+        }) 
+            
+        %>
+    </table>
+</body>
+</html>
