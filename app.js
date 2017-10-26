@@ -110,7 +110,8 @@ app.post('/users/added', function (req, res){
     Db.writeFile(file, obj, body, function(obj){
 
       //callback render
-      res.redirect('/users');
+      // res.redirect('/users');
+      res.render('users',obj);
     });
 
   })
@@ -126,7 +127,8 @@ app.post('/users/edited', function (req, res){
     Db.editFile(file, obj, body, function(obj){
 
       //callback render
-      res.redirect('/users');
+      // res.redirect('/users');
+      res.render('users',obj);
     });
 
   })
@@ -136,7 +138,8 @@ app.post('/users/edited', function (req, res){
 app.get('/users/delete/:id', function (req, res) {
   let id = req.params.id
   Db.deleteFile(file, id, function(obj){
-    res.redirect('/users');
+    // res.redirect('/users');
+    res.render('users',obj);
   });
 
 })
@@ -185,7 +188,8 @@ app.post('/cities/added', function (req, res){
     Db.writeFileCt(file, obj, body, function(obj){
 
       //callback render
-      res.redirect('/cities');
+      // res.redirect('/cities');
+      res.render('cities',obj);
     });
 
   })
@@ -201,7 +205,8 @@ app.post('/cities/edited', function (req, res){
     Db.editFileCt(file, obj, body, function(obj){
 
       //callback render
-      res.redirect('/cities');
+      // res.redirect('/cities');
+      res.render('cities',obj);
     });
 
   })
@@ -211,7 +216,8 @@ app.post('/cities/edited', function (req, res){
 app.get('/cities/delete/:id', function (req, res) {
   let id = req.params.id
   Db.deleteFileCt(file, id, function(obj){
-    res.redirect('/cities');
+    // res.redirect('/cities');
+    res.render('cities',obj);
   });
 
 })

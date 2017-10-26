@@ -2,7 +2,7 @@
   "users": [
     {
       "id": "1",
-      "username": "hacktiv8sssssssssssssss",
+      "username": "hacktiv8",
       "password": "hacktiv8",
       "email": "hactiv8@hacktiv8.com"
     },
@@ -28,18 +28,18 @@
       "id": 5,
       "username": "Naruto",
       "password": "Uzumaki",
-      "email": "nrtuz@mki.com"
+      "email": "nrtuz@mkizzsssz.com"
     },
     {
-      "id": "6",
-      "username": "Sakura",
-      "password": "sakurachan",
-      "email": "sakura@.com"
+      "id": 6,
+      "username": "usd",
+      "password": "psw",
+      "email": "usd@psw.com"
     }
   ],
   "cities": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Jakarta",
       "province": "DKI Jakarta"
     },
@@ -59,9 +59,9 @@
       "province": "Paman Chen"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "citysim",
-      "province": "simcity"
+      "province": "simcity simposium"
     }
   ],
   "_locals": {}
