@@ -1,1 +1,68 @@
-{"users":[{"id":"1","username":"hacktiv8sssssssssssssss","password":"hacktiv8","email":"hactiv8@hacktiv8.com"},{"id":2,"username":"johndoe","password":"12345","email":"john@doe.com"},{"id":3,"username":"capung","password":"terbang","email":"capung@terbang.com"},{"id":4,"username":"aing","password":"maung","email":"aing@maung.com"},{"id":5,"username":"Naruto","password":"Uzumaki","email":"nrtuz@mki.com"}],"cities":[{"id":"1","name":"Jakarta","province":"DKI Jakarta"},{"id":2,"name":"Bandung","province":"Jawa Barat"},{"id":3,"name":"Negri Air","province":"Taman Suci"},{"id":4,"name":"Negri Kincir Angin","province":"Paman Chen"},{"id":"5","name":"Desa air","province":"air suci"}],"_locals":{}}
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "hacktiv8sssssssssssssss",
+      "password": "hacktiv8",
+      "email": "hactiv8@hacktiv8.com"
+    },
+    {
+      "id": 2,
+      "username": "johndoe",
+      "password": "12345",
+      "email": "john@doe.com"
+    },
+    {
+      "id": 3,
+      "username": "capung",
+      "password": "terbang",
+      "email": "capung@terbang.com"
+    },
+    {
+      "id": 4,
+      "username": "aing",
+      "password": "maung",
+      "email": "aing@maung.com"
+    },
+    {
+      "id": 5,
+      "username": "Naruto",
+      "password": "Uzumaki",
+      "email": "nrtuz@mki.com"
+    },
+    {
+      "id": "6",
+      "username": "Sakura",
+      "password": "sakurachan",
+      "email": "sakura@.com"
+    }
+  ],
+  "cities": [
+    {
+      "id": "1",
+      "name": "Jakarta",
+      "province": "DKI Jakarta"
+    },
+    {
+      "id": 2,
+      "name": "Bandung",
+      "province": "Jawa Barat"
+    },
+    {
+      "id": 3,
+      "name": "Negri Air",
+      "province": "Taman Suci"
+    },
+    {
+      "id": 4,
+      "name": "Negri Kincir Angin",
+      "province": "Paman Chen"
+    },
+    {
+      "id": 5,
+      "name": "citysim",
+      "province": "simcity"
+    }
+  ],
+  "_locals": {}
+}
