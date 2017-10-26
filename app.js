@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser')
-const fs = require('fs')
-
+const Model = require('./models/model');
 const app = express()
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -17,11 +16,19 @@ app.get('/', (req, res) => {
 })
 
 app.get('/users', (req, res) => {
-  res.render('users');
+  let model = new Model('data.json');
+  model.getFileJSON(function(data) {
+
+  	res.render('users', data);
+  })	
 })
 
 app.get('/cities', (req, res) => {
-  res.render('cities');
+  let model = new Model('data.json');
+
+  model.getFileJSON( (data) => {
+  	res.render('cities', data);
+  });
 })
 
 app.listen(3000, function() {

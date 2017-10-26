@@ -6,6 +6,9 @@
 </head>
 <body>
 	<h1>List of Users</h1>
-	
+
+	<% for (var i = 0; i < users.length; i++ ) { %>
+		<p>ID: <%= users[i].id %> Username: <%= users[i].username %> Password: <%= users[i].password %> Email: <%= users[i].email %></p>
+	<% } %>
 </body>
 </html>

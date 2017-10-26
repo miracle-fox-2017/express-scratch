@@ -6,6 +6,8 @@
 </head>
 <body>
 	<h1>List of Cities</h1>
-	
+	<% for (var i = 0; i < cities.length; i++ ) { %>
+		<p>ID: <%= cities[i].id %> Name: <%= cities[i].name %> Province: <%= cities[i].province %></p>
+	<% } %>
 </body>
 </html>
