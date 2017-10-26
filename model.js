@@ -10,7 +10,14 @@ class Model{
             if(err){
                 throw err;
             }else{
-                callback(JSON.parse(data));
+                callback(data);
+            }
+        });
+    }
+    tulisFile(data){
+        fs.writeFile(this.filename,data,(err)=>{
+            if(err){
+                throw err;
             }
         });
     }

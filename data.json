@@ -1,20 +1,12 @@
-[
-    {
-        "users":[{
-          "username":"hacktiv8",
-          "password":"hacktiv8",
-          "email":"hactiv8@hacktiv8.com"
-        },{
-          "username":"johndoe",
-          "password":"12345",
-          "email":"john@doe.com"
-        }],
-        "cities":[{
-          "name":"Jakarta",
-          "province":"DKI Jakarta"
-        },{
-          "name":"Bandung",
-          "province":"Jawa Barat"
-        }]
-    }
-]
+{
+    "users":[
+        {"username":"hacktiv8","password":"hacktiv8","email":"hactiv8@hacktiv8.com"},
+        {"username":"johndoe","password":"12345","email":"john@doe.com"},
+        {"username":"tomy","password":"tomy","email":"tomy"}
+    ],
+    "cities":[
+        {"name":"Jakarta","province":"DKI Jakarta"},
+        {"name":"Bandung","province":"Jawa Barat"},
+        {"name":"tomy","province":"tomy"}
+    ]
+}

@@ -33,17 +33,38 @@ app.set("view engine","ejs");
 
 //=================================> Release 1 Get Data from JSON File
 // Routing
+// Home Page / Landing Page
 app.get("/",(req,res)=>{
     res.render("index");
 });
+
+// Users
 app.get("/users",(req,res)=>{
     model.bacaFile((data)=>{
-        res.render("user",data[0]);
+        const jsonParse=JSON.parse(data);
+        res.render("user",jsonParse[0]);
     });
 });
+app.get("/users/add",(req,res)=>{
+    res.render("create");
+});
+app.post("/create",(req,res)=>{
+    model.bacaFile((data)=>{
+        let parsing=JSON.parse(data)[0];
+        const user={username:req.body.username,password:req.body.password,email:req.body.email};
+        const city={name:req.body.city,province:req.body.province};
+        parsing.users.push(user);
+        parsing.cities.push(city);
+        model.tulisFile(JSON.stringify(parsing));
+    });
+    res.render("index");
+});
+
+// Cities
 app.get("/cities",(req,res)=>{
     model.bacaFile((data)=>{
-        res.render("city",data[0]);
+        const jsonParse=JSON.parse(data);
+        res.render("city",jsonParse[0]);
     });
 });
 
