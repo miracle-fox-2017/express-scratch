@@ -19,7 +19,7 @@ class Cities {
       }
     });
   }
-  static getIdCities(id,cb){
+  static getIdCities(id, cb){
     this.readFile(data=>{
       data.cities.forEach(dataCities=>{
         if(dataCities.id === +id){
@@ -33,7 +33,7 @@ class Cities {
       cb(data)
     })
   }
-  static addCities(add){
+  static addCities(add, cb){
     this.readFile(data=>{
       let no = data.cities[data.cities.length - 1].id + 1
       data.cities.push(
@@ -42,6 +42,7 @@ class Cities {
           name: add.name,
           province: add.province
         })
+        cb()
         this.writeFile(data)
     })
   }
@@ -54,17 +55,19 @@ class Cities {
           dataCities.province = edit.province
         }
       })
+      cb()
       this.writeFile(data)
     })
   }
 
-  static deleteCity(id){
+  static deleteCity(id,cb){
     this.readFile(data=>{
       data.cities.forEach(dataCities=>{
         if(dataCities.id === +id){
           data.cities.splice(data.cities.indexOf(dataCities), 1)
         }
       })
+      cb()
       this.writeFile(data)
     })
   }

@@ -32,7 +32,7 @@ class Users {
       cb(data)
     })
   }
-  static addUsers(add){
+  static addUsers(add,cb){
     this.readFile(data=>{
       let no = data.users[data.users.length - 1].id + 1
       data.users.push(
@@ -42,6 +42,7 @@ class Users {
           password: add.password,
           email: add.email
         })
+        cb()
         this.writeFile(data)
     })
   }
@@ -55,17 +56,19 @@ class Users {
           dataUsers.email = edit.email
         }
       })
+      cb()
       this.writeFile(data)
     })
   }
 
-  static deleteCity(id){
+  static deleteCity(id, cb){
     this.readFile(data=>{
       data.users.forEach(dataUsers=>{
         if(dataUsers.id === +id){
           data.users.splice(data.users.indexOf(dataUsers), 1)
         }
       })
+      cb()
       this.writeFile(data)
     })
   }
