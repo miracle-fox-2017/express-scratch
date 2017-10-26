@@ -6,24 +6,19 @@
     <title>Users</title>
   </head>
   <body>
+    <%include ./partials/menu%>
       <div class="uk-section">
           <div class="uk-container">
-            <form action="/edit" method="post">
+            <form action="/users/edit/<%=id%>" method="post">
                   <div class="uk-margin">
-                      <input class="uk-input uk-form-width-medium" name="id" type="text">
+                      <input class="uk-input uk-form-width-medium" value="<%=username%>" name="username" type="text">
                   </div>
                   <div class="uk-margin">
-                      <input class="uk-input uk-form-width-medium" name="username" type="text">
+                      <input class="uk-input uk-form-width-medium" value="<%=password%>" name="password" type="text">
                   </div>
                   <div class="uk-margin">
-                      <input class="uk-input uk-form-width-medium" name="password" type="text">
+                      <input class="uk-input uk-form-width-medium" value="<%=email%>" name="email" type="email">
                   </div>
-                  <div class="uk-margin">
-                      <input class="uk-input uk-form-width-medium" name="email" type="email">
-                  </div>
-                  <p uk-margin>
-                      <button class="uk-button uk-button-default uk-button-small">Cancel</button>
-                  </p>
                   <p uk-margin>
                       <button class="uk-button uk-button-default uk-button-small">Edit</button>
                   </p>

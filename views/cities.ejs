@@ -24,16 +24,13 @@
                         <td><%=dataCities.id%></td>
                         <td><%=dataCities.name%></td>
                         <td><%=dataCities.province%></td>
-                        <td><a href="cities/edit/">Edit</a></td>
-                        <td><a href="cities/delete/">Delete</a></td>
+                        <td><a href="cities/edit/<%=dataCities.id%>">Edit</a></td>
+                        <td><a href="cities/delete/<%=dataCities.id%>">Delete</a></td>
                     </tr>
                     <%})%>
                 </tbody>
             </table>
-              <form action="/cities/add" method="post">
-                    <div class="uk-margin">
-                        <input class="uk-input uk-form-width-medium" name="id" type="text" placeholder="Id">
-                    </div>
+              <form action="/cities" method="post">
                     <div class="uk-margin">
                         <input class="uk-input uk-form-width-medium" name="name" type="text" placeholder="Name">
                     </div>

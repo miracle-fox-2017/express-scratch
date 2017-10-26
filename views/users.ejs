@@ -26,16 +26,13 @@
                         <td><%=dataUsers.username%></td>
                         <td><%=dataUsers.password%></td>
                         <td><%=dataUsers.email%></td>
-                        <td><a href="/edit/">Edit</a></td>
-                        <td><a href="/delete/">Delete</a></td>
+                        <td><a href="users/edit/<%=dataUsers.id%>">Edit</a></td>
+                        <td><a href="users/delete/<%=dataUsers.id%>">Delete</a></td>
                     </tr>
                 <%})%>
                 </tbody>
             </table>
-            <form action="/add" method="post">
-                  <div class="uk-margin">
-                      <input class="uk-input uk-form-width-medium" name="id" type="text" placeholder="Id">
-                  </div>
+            <form action="/users" method="post">
                   <div class="uk-margin">
                       <input class="uk-input uk-form-width-medium" name="username" type="text" placeholder="Username">
                   </div>

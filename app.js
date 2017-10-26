@@ -1,14 +1,21 @@
 /** EXPRESS FROM SCRATCH V.0**/
 
-const express = require('express')
-const bodyParser = require('body-parser')
-const app = express()
-var jsonParser = bodyParser.json()
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
+const express = require('express');
+const app = express();
+// set the view engine to ejs
+app.set('view engine', 'ejs');
+var bodyParser = require('body-parser')
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
+
+//REQUIRE
 let index = require('./routers/index')
 let users = require('./routers/users')
 let cities = require('./routers/cities')
-app.set('view engine', 'ejs');
+
+//ROUTER
 app.use('/', index)
 app.use('/users', users)
 app.use('/cities',cities)
