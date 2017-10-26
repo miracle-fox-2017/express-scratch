@@ -25,11 +25,35 @@ class Model {
 
   }
 
+  static getLastIdCities(callback) {
+
+    this.parsingData(function(data) {
+
+      var dataLastId = data[0].cities[data[0].cities.length - 1].id
+
+      callback(dataLastId)
+
+    })
+
+  }
+
+  static getLastIdUsers(callback) {
+
+    this.parsingData(function(data) {
+
+      var dataLastId = data[0].cities[data[0].cities.length - 1].id
+
+      callback(dataLastId)
+
+    })
+
+  }
+
   static tampilkanDataUser(callback) {
 
     this.parsingData(function(data) {
 
-      var dataUser = data.users
+      var dataUser = data[0].users
 
       callback(dataUser)
 
@@ -41,14 +65,69 @@ class Model {
 
     this.parsingData(function(data) {
 
-      var dataCities = data.cities
+      var dataCities = data[0].cities
 
       callback(dataCities)
 
     })
-    
+
+  }
+
+  static tambahkanDataCities(obj) {
+
+    this.parsingData(function(data) {
+
+      data[0].cities.push(obj)
+
+      fs.writeFile('data.json', JSON.stringify(data))
+
+    })
+
+  }
+
+  static hapusDataCities(id) {
+
+    this.parsingData(function(data) {
+
+      for(var i = 0; i < data[0].cities.length; i++) {
+        if(data[0].cities[i].id == id) {
+          data[0].cities.splice(i, 1)
+        }
+      }
+
+      fs.writeFile('data.json', JSON.stringify(data))
+
+    })
+
+  }
+
+  static tampilkanDataCitiesById(id, callback) {
+    this.parsingData(function(data) {
+
+      for(var i = 0; i < data[0].cities.length; i++) {
+        if(data[0].cities[i].id == id) {
+          var dataCitiesById = data[0].cities[i]
+        }
+      }
+
+      callback(dataCitiesById)
+
+    })
+  }
+
+  static editDataCities(id, dataobj) {
+    this.parsingData(function(data) {
+
+      for(var i = 0; i < data[0].cities.length; i++) {
+        if(data[0].cities[i].id == id) {
+          data[0].cities[i].name = dataobj.name
+          data[0].cities[i].province = dataobj.province
+        }
+      }
+      fs.writeFile('data.json', JSON.stringify(data))
+    })
   }
 
 }
 
-module.exports = Model;
+module.exports = Model

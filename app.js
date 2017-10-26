@@ -7,6 +7,9 @@ const app = express()
 const jsonParser = bodyParser.json()
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
 app.set('views', './views')
 app.set('view engine', 'ejs')
 
@@ -29,6 +32,49 @@ app.get('/cities', function(req, res) {
   Model.tampilkanDataCities(function(dataCities) {
     res.render('cities', {data: dataCities})
   })
+})
+
+app.get('/cities/add', function (req, res) {
+  res.render('citiesadd')
+})
+
+app.post('/cities/add', function(req, res) {
+  Model.getLastIdCities(function(dataId) {
+
+    var objData = {
+      id: +dataId + 1,
+      name: req.body.name,
+      province: req.body.province
+    }
+
+    Model.tambahkanDataCities(objData)
+    res.redirect('/cities/add')
+  })
+})
+
+
+app.get('/cities/delete/:id', function(req, res) {
+
+  Model.hapusDataCities(req.params.id)
+
+  res.redirect('/cities')
+
+})
+
+app.get('/cities/edit/:id', function(req, res) {
+
+  Model.tampilkanDataCitiesById(req.params.id, function(dataCitiesById) {
+    res.render('citiesedit', {data: dataCitiesById})
+  })
+
+})
+
+app.post('/cities/edit/:id', function(req, res) {
+
+  Model.editDataCities(req.params.id, req.body)
+  console.log(req.body);
+  res.redirect('/cities')
+
 })
 
 
