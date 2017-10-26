@@ -44,3 +44,142 @@ URL --> http://localhost:3000/users/add (untuk routing add users)
 URL --> http://localhost:3000/users/edit/:id (untuk routing edit users dengan mengirimkan id data)
 URL --> http://localhost:3000/users/delete/:id (untuk routing delete users dengan mengirimkan id data)
 **/
+
+
+const express = require('express');
+const app = express();
+const fs = require('fs')
+const Model = require('./Model.js')
+
+app.set('views', './views') // specify the views directory
+app.set('view engine', 'ejs') // register the template engine
+
+
+app.get('/', function (req, res) {
+  res.send('My App febriliando')
+})
+
+  let mdl = new Model('data.json')
+
+app.get('/user', function (req, res) {
+  mdl.getData(function(data){
+    res.send(data.toString())
+    console.log(mdl);
+  })
+
+})
+app.get('/cities', function (req, res) {
+  let Obj = {
+    cities: [{
+      name: 'Jakarta',
+      province: 'DKI Jakarta',
+    }, {
+      name: 'Bandung',
+      province: 'Jawa Barat'
+    }]
+  }
+  res.render('cities', Obj) //menampilkan di hal ini aja
+})
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const express = require('express');
+// const bodyParser = require('body-parser')
+// const Model = require('./models/model');
+// const app = express();
+// const fs = require('fs');
+//
+// // parse application/x-www-form-urlencoded
+// app.use(bodyParser.urlencoded({ extended: false }));
+// // parse application/json
+// app.use(bodyParser.json());
+//
+// app.set('views', './views') // specify the views directory
+// app.set('view engine', 'ejs') // register the template engine
+//
+// let model = new Model('data.json');
+//
+// // blog home page
+// app.get('/', (req, res) => {
+//   res.render('home', {name: 'Septian A. Fujianto'});
+// })
+//
+// app.get('/users', (req, res) => {
+//
+//   model.getDataFromJSON(function(data) {
+//   	res.render('users', data);
+//   })
+// })
+//
+// app.get('/users/add', (req, res) => {
+//    model.getDataFromJSON(function(data) {
+//     res.render('new-user', data);
+//   })
+// })
+//
+// app.post('/users/create', (req, res) => {
+//   model.getDataFromJSON(function(data) {
+//     data.users.push(req.body);
+//     // res.send(data);
+//     res.redirect('/users');
+//     model.writeDataToJSON(data);
+//   })
+//
+// })
+//
+// app.get('/cities', (req, res) => {
+//   let model = new Model('data.json');
+//
+//   model.getDataFromJSON( (data) => {
+//   	res.render('cities', data);
+//   });
+// })
+//
+// app.listen(3000, function() {
+//   console.log('Listening to port 3000');
+// })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
