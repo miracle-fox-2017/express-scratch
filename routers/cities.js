@@ -16,7 +16,7 @@ router.post('/add',(req,res)=>{
 // READ
 router.get('/',(req,res)=>{
   model.getFile((cities)=>{
-    res.render('cities',cities)
+    res.render('cities',{cities})
   })
 })
 

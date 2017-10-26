@@ -10,11 +10,11 @@ class Cities{
     // console.log('+++++',data);
     let to_JSON = JSON.stringify(data)
     console.log('?????', to_JSON);
-    fs.writeFile('./data/data.json', to_JSON,(err)=>{
-      if(err){
-        console.log(err);
-      }
-    })
+    // fs.writeFile('./data/data.json', to_JSON,(err)=>{
+    //   if(err){
+    //     console.log(err);
+    //   }
+    // })
   }
 
   getFile(cb){
@@ -22,11 +22,10 @@ class Cities{
       if(err){
         console.log(err);
       }else{
-        console.log(data);
         let parse = JSON.parse(data)
-
+        console.log('>>>>>',parse[0].cities);
         // this.data_cities.push(parse)
-        cb(parse)
+        cb((parse[0].cities))
       }
     })
   }

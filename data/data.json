@@ -1,4 +1,4 @@
-{
+[{
   "users": [{
     "id_users" : 1,
     "username": "hacktiv8",
@@ -23,4 +23,4 @@
     "name": "semarang",
     "province": "Jawa Timur"
   }]
-}
+}]

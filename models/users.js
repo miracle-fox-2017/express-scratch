@@ -11,8 +11,10 @@ class Users{
       if(err){
         console.log(err);
       }else{
+
         let parse = JSON.parse(data)
-        cb(parse)
+        // console.log(parse[0]['users']);
+        cb(parse[0]['users'])
       }
     })
   }
