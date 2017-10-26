@@ -14,7 +14,7 @@ class Users{
 
         let parse = JSON.parse(data)
         // console.log(parse[0]['users']);
-        cb(parse[0]['users'])
+        cb(parse)
       }
     })
   }

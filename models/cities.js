@@ -9,12 +9,12 @@ class Cities{
   saveFile(data){
     // console.log('+++++',data);
     let to_JSON = JSON.stringify(data)
-    console.log('?????', to_JSON);
-    // fs.writeFile('./data/data.json', to_JSON,(err)=>{
-    //   if(err){
-    //     console.log(err);
-    //   }
-    // })
+    console.log('>>>>IN<<<<', to_JSON);
+    fs.writeFile('./data/data.json', to_JSON,(err)=>{
+      if(err){
+        console.log(err);
+      }
+    })
   }
 
   getFile(cb){
@@ -23,27 +23,28 @@ class Cities{
         console.log(err);
       }else{
         let parse = JSON.parse(data)
-        console.log('>>>>>',parse[0].cities);
+        // console.log('>>>>>',parse);
         // this.data_cities.push(parse)
-        cb((parse[0].cities))
+        cb((parse))
       }
     })
   }
 
   create(submit,cb){
     this.getFile((data)=>{
-      // console.log('<<<<<<<',data.cities,'>>>>>>>');
+      // console.log('<<<<<<<',data,'>>>>>>>');
       let last_index = []
-      for(let i=0; i<data.cities.length; i++){
-        last_index.push(data.cities[data.cities.length-1].id_cities)
+      for(let i=0; i<data[0].cities.length; i++){
+        last_index.push(data[0].cities[data[0].cities.length-1].id_cities)
       }
-
-      data.cities.push({
-        id_cities : (data.cities.length == last_index[0]) ? (data.cities.length + 1) : (last_index[0] + 1),
+      // console.log(data[0].cities.length,'<<<<');
+      // console.log('>>>>',last_index[0]);
+      data[0].cities.push({
+        id_cities : (data[0].cities.length == last_index[0]) ? (data[0].cities.length + 1) : (last_index[0] + 1),
         name      : submit['name'],
         province  : submit['province'],
       })
-      this.saveFile(data.cities)
+      this.saveFile(data)
       cb(data)
     })
   }

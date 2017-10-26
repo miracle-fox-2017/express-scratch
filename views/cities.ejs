@@ -31,11 +31,11 @@
         <th>ACTIONS</th>
 
       </tr>
-      <%for(let i=0; i<cities.length; i++){%>
+      <%for(let i=0; i<cities[0].cities.length; i++){%>
       <tr>
-        <td><%=cities[i]['id_cities']%></td>
-        <td><%=cities[i]['name']%></td>
-        <td><%=cities[i]['province']%></td>
+        <td><%=cities[0].cities[i]['id_cities']%></td>
+        <td><%=cities[0].cities[i]['name']%></td>
+        <td><%=cities[0].cities[i]['province']%></td>
         <td style="margin-left:-5px;">
               <a class="button is-info is-outlined is-small" href='#'>
               <span class="icon is-small">
