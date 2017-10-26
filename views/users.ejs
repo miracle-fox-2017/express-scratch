@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Users List</title>
+  </head>
+  <body>
+    <h1>USER:</h1>
+    <% for(let i = 0; i<users.length; i++){ %>
+      <%= users[i].id%>. 
+      <%= users[i].username%>
+      <%= users[i].password%>
+      <%= users[i].email%> <a href="/users/edit/<%= users[i].id%>">edit</a> <br>
+      
+    <% } %>
+    <br>
+    <a href="/users/add">add user</a>
+  </body>
+</html>

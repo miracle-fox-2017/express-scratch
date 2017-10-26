@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Cities List</title>
+  </head>
+  <body>
+    <h1>CITIES</h1>
+    <% for(let i = 0; i<cities.length; i++){ %>
+      <%= i+1%>. 
+      <%= cities[i].name%> 
+      <%= cities[i].province%><br>
+    <% } %>
+    <br>
+    <a href="/cities/add">add cities</a>
+  </body>
+</html>
