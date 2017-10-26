@@ -4,9 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="resource/style.css">
   <title>cities</title>
 </head>
 <body>
-  <h1>Welcome to cities My App aditreza</h1>
+
+  <ul>
+    <li><a class="active" href="/">Home</a></li>
+    <li><a href="/users">Users</a></li>
+    <li><a href="/cities">Cities</a></li>
+  </ul>
+
+  <h2>Welcome to cities My App aditreza</h2>
+  <div class="w3-responsive">
+    <table class="w3-table-all">
+    <tr>
+      <th>ID</th>
+      <th>NAME</th>
+      <th>PROVINCE</th>
+    </tr>
+    <%for(let i=0; i<cities.length; i++){%>
+    <tr>
+      <td><%=cities[i]['id_cities']%></td>
+      <td><%=cities[i]['name']%></td>
+      <td><%=cities[i]['province']%></td>
+    </tr>
+    <%}%>
+  </table>
+  </div>
+
 </body>
 </html>

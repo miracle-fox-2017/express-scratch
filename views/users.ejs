@@ -4,9 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="resource/style.css">
   <title>users</title>
 </head>
 <body>
-  <h1>Welcome to Express users My App aditreza</h1>
+
+  <ul>
+    <li><a class="active" href="/">Home</a></li>
+    <li><a href="/users">Users</a></li>
+    <li><a href="/cities">Cities</a></li>
+  </ul>
+
+  <h2>Welcome to Express users My App aditreza</h2>
+  <div class="w3-responsive">
+    <table class="w3-table-all">
+    <tr>
+      <th>ID</th>
+      <th>USERNAME</th>
+      <th>PASSWORD</th>
+      <th>EMAIL</th>
+    </tr>
+    <%for(let i = 0; i < users.length; i++){%>
+    <tr>
+      <td><%=users[i]['id_users']%></td>
+      <td><%=users[i]['username']%></td>
+      <td><%=users[i]['password']%></td>
+      <td><%=users[i]['email']%></td>
+    </tr>
+    <%}%>
+  </table>
+  </div>
+
 </body>
 </html>

@@ -1,10 +1,12 @@
 const express = require('express')
 const router  = express.Router()
-const model   = require('../models')
+const model   = require('../models/cities')
 
 
 router.get('/',(req,res)=>{
-  res.render('cities')
+  model.getFile((cities)=>{
+    res.render('cities',cities)
+  })
 })
 
 
