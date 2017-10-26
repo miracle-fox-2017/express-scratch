@@ -15,7 +15,9 @@ class Model{
         });
     }
     tulisFile(data){
-        fs.writeFile(this.filename,data,(err)=>{
+        const array=[data];
+        const stringify=JSON.stringify(array);
+        fs.writeFile(this.filename,stringify,(err)=>{
             if(err){
                 throw err;
             }

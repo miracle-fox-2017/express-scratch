@@ -55,7 +55,7 @@ app.post("/create",(req,res)=>{
         const city={name:req.body.city,province:req.body.province};
         parsing.users.push(user);
         parsing.cities.push(city);
-        model.tulisFile(JSON.stringify(parsing));
+        model.tulisFile(parsing);
     });
     res.render("index");
 });

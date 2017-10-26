@@ -1,12 +1,1 @@
-{
-    "users":[
-        {"username":"hacktiv8","password":"hacktiv8","email":"hactiv8@hacktiv8.com"},
-        {"username":"johndoe","password":"12345","email":"john@doe.com"},
-        {"username":"tomy","password":"tomy","email":"tomy"}
-    ],
-    "cities":[
-        {"name":"Jakarta","province":"DKI Jakarta"},
-        {"name":"Bandung","province":"Jawa Barat"},
-        {"name":"tomy","province":"tomy"}
-    ]
-}
+[{"users":[{"username":"hacktiv8","password":"hacktiv8","email":"hactiv8@hacktiv8.com"},{"username":"johndoe","password":"12345","email":"john@doe.com"},{"username":"tomybudiman","password":"123456789","email":"tommybudi1998@gmail.com"},{"username":"tomydjaya","password":"","email":"tommybudi1998@gmail.com"}],"cities":[{"name":"Jakarta","province":"DKI Jakarta"},{"name":"Bandung","province":"Jawa Barat"},{"name":"Karawang","province":"Jawa Barat"},{"name":"Cilacap","province":"Jawa Tengah"}]}]
