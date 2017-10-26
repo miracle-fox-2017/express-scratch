@@ -1,6 +1,7 @@
 const express = require('express')
 const ejs = require('ejs')
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser')
+const Model = require('./model');
 
 const app = express()
 const jsonParser = bodyParser.json()
@@ -15,12 +16,21 @@ app.get('/', function (req, res) {
 })
 
 app.get('/users', function(req, res) {
-  res.render('users', {username: 'hacktiv8', password: 'hacktiv8', email: 'hactiv8@hacktiv8.com'})
+
+  Model.tampilkanDataUser(function(dataUser) {
+
+    res.render('users', {data: dataUser})
+
+  })
+
 })
 
 app.get('/cities', function(req, res) {
-  res.render('cities', {name: 'Jakarta', provience: 'DKI Jakarta'})
+  Model.tampilkanDataCities(function(dataCities) {
+    res.render('cities', {data: dataCities})
+  })
 })
+
 
 
 app.listen(3000, function() {

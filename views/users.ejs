@@ -5,8 +5,10 @@
     <title></title>
   </head>
   <body>
-    <p>username: <%=username%></p>
-    <p>password: <%=password%></p>
-    <p>email: <%=email%></p>
+    <%for(var i = 0; i < data.length; i++) {%>
+    <p>username: <%=data[i].username%></p>
+    <p>password: <%=data[i].password%></p>
+    <p>email: <%=data[i].email%></p>
+    <%}%>
   </body>
 </html>
