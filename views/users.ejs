@@ -10,10 +10,11 @@
       <%= users[i].id%>. 
       <%= users[i].username%>
       <%= users[i].password%>
-      <%= users[i].email%> <a href="/users/edit/<%= users[i].id%>">edit</a> <br>
+      <%= users[i].email%> <a href="/users/edit/<%= users[i].id%>">edit</a> <a href="/users/delete/<%= users[i].id%>">delete</a><br>
       
     <% } %>
     <br>
-    <a href="/users/add">add user</a>
+    <a href="/users/add">add user</a><br>
+    <a href="/">go back home</a><br>
   </body>
 </html>

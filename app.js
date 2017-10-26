@@ -66,6 +66,8 @@ app.get('/', function(req, res){
   res.render('home',obj);
 })
 
+////////////////////////////////////users////////////////////////////////
+
 app.get('/users', function(req, res){
   Db.readFile(file, function(obj){
     res.render('users',obj);
@@ -130,30 +132,20 @@ app.post('/users/edited', function (req, res){
   })
 })
 
+//bikin form untuk delete user
+app.get('/users/delete/:id', function (req, res) {
+  let id = req.params.id
+  Db.deleteFile(file, id, function(obj){
+    res.redirect('/users');
+  });
+
+})
 
 ////////////////////////////////////cities////////////////////////////////
 
 app.get('/cities', function(req, res){
   Db.readFile(file, function(obj){
     res.render('cities',obj);
-  })
-})
-
-//post
-app.post('/cities', function(req, res){
-  let body = req.body;
-  Db.readFile(file, function(obj){
-    //ganti id jadi yang terakhir
-    let newInput = body;
-    console.log(body);
-    
-    //writeFile
-    Db.writeFileCt(file, obj, body, function(obj){
-
-      //callback render
-      res.render('cities',obj);
-    });
-
   })
 })
 
@@ -164,8 +156,68 @@ app.get('/cities/add', function(req, res){
   })
 })
 
+//bikin form untuk edit user
+app.get('/cities/edit/:id', function (req, res) {
+  let id = req.params.id
+  Db.readFile(file, function(obj){
+    // console.log(obj.users);
+    let temp;
+    for(let i = 0; i<obj.cities.length; i++){
+      // console.log(obj.users[i].id);
+      // console.log(id);
+      if(obj.cities[i].id == id){
+        // console.log('ada true?');
+        temp = obj.cities[i];
+      }
+    }
+    // console.log(temp);
+    res.render('cities_edit',temp)
+  })
+})
 
+app.post('/cities/added', function (req, res){
+  let body = req.body;
+  Db.readFile(file, function(obj){
+    //ganti id jadi yang terakhir
+    let newInput = body;
+    
+    //writeFile
+    Db.writeFileCt(file, obj, body, function(obj){
+
+      //callback render
+      res.redirect('/cities');
+    });
+
+  })
+})
+
+app.post('/cities/edited', function (req, res){
+  let body = req.body;
+  Db.readFile(file, function(obj){
+    //ganti id jadi yang terakhir
+    let newInput = body;
+    
+    //writeFile
+    Db.editFileCt(file, obj, body, function(obj){
+
+      //callback render
+      res.redirect('/cities');
+    });
+
+  })
+})
+
+//bikin form untuk delete user
+app.get('/cities/delete/:id', function (req, res) {
+  let id = req.params.id
+  Db.deleteFileCt(file, id, function(obj){
+    res.redirect('/cities');
+  });
+
+})
+
+////////////////////////////////////listen////////////////////////////////
 
 app.listen(3000, function(){
-  console.log('jalan cuy');
+  console.log('jalan cuy di port 3000');
 })
