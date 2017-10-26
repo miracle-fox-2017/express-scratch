@@ -11,6 +11,15 @@ function readfile (call){
   })
 }
 
+function save (data,input) {
+  fs.writeFile('./data.json',JSON.stringify(data),(err,data)=>{
+    if (err) throw err;
+    else {
+      input(data)
+    }
+  })
+}
+
 module.exports = readfile
 // export {readfile} ;
 // exports.readfile = function () {

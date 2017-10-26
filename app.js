@@ -21,7 +21,7 @@ app.get('/users',(req, res) => {
       dataUser : data
     }
 
-    res.render('user', obj) 
+    res.render('user', obj)
   })
 
 })
@@ -38,6 +38,28 @@ app.get('/cities',(req, res) => {
   })
 
 })
+
+
+
+
+app.get('/users/add',(req,res) =>{
+  res.render('adduser')
+})
+
+app.post('/users/add',(req,res) =>{
+  res.redirect('/users')
+})
+
+app.get('/users/edit',(req,res) =>{
+  res.render('edit')
+})
+
+app.get('/users/delete',(req,res) =>{
+  res.render('delete')
+})
+
+
+
 
 app.listen(3000,() => {
   console.log('Example app listening on port 3000!')

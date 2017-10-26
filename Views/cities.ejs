@@ -3,15 +3,39 @@
   <head>
     <meta charset="utf-8">
     <title>Cities</title>
+    <style media="screen">
+    h2 {
+      text-align: center;
+    }
+    table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    }
+    </style>
   </head>
   <body>
       <div>
         <h2>Cities</h2>
         <table>
+          <tr>
+    <th>Cities</th>
+    <th>Province</th>
+    <th>Actions</th>
+
+  </tr>
           <% for(var i=0; i < dataCities.cities.length; i++) { %>
    <tr>
      <td><%= dataCities.cities[i].name %></td>
      <td><%= dataCities.cities[i].province %></td>
+     <td><h4><a href="/users/add">Add Cities</a></h4>
+     <h4><a href="/users/edit">Edit Cities</a></h4>
+     <h4><a href="/users/delete">Delete Cities</a></h4></td>
    </tr>
 <% } %>
       </table>
