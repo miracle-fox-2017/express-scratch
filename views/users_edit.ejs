@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mengedit users</title>
+  </head>
+  <body>
+    <h1>Mengedit Users</h1>
+    <a href="/">go back home</a> || <a href="/cities/">list cities</a> || <a href="/users/">list users</a><br><br>
+    <form class="form1" action="/users/edited" method="post">
+      <input type="hidden" name="id" value="<%= id %>"><br>
+      Username: <input type="text" name="username" value="<%= username %>"/><br>
+      Password: <input type="text" name="password" value="<%= password %>"/><br>
+      Email: <input type="text" name="email" value="<%= email %>"/><br>
+      <input type="submit" name="" value="KIRIM">
+     </form>
+  </body>
+</html>
