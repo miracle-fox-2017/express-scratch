@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>users</title>
+</head>
+<body>	
+	<h1> List Users </h1>
+	<div class="users"><%for (let i = 0 ; i<users.length ;i++ ){%>
+		 ID = <%= i+1 %> &emsp; Username: <%= users[i].username %> &emsp; Password : <%= users[i].password %>     &emsp; Email : <%= users[i].email %> <br>
+	<%}%>
+	</div>	
+</body>
+</html>

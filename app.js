@@ -44,3 +44,86 @@ URL --> http://localhost:3000/users/add (untuk routing add users)
 URL --> http://localhost:3000/users/edit/:id (untuk routing edit users dengan mengirimkan id data)
 URL --> http://localhost:3000/users/delete/:id (untuk routing delete users dengan mengirimkan id data)
 **/
+const fs = require('fs')
+const express = require('express')
+const Model = require('./model/model')
+const bodyParser = require('body-parser')
+const app = express()
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
+let model = new Model()
+
+app.set('views', './views') // specify the views directory
+app.set('view engine', 'ejs') // register the template engine
+
+app.get('/', function (req, res) {
+  res.render('home')
+})
+
+app.get('/users', function (req, res) {
+  model.getData(data => {
+      res.render('users', data)
+  })
+})
+
+app.get('/users/add', function (req, res) {
+    model.getData(data =>{
+      res.render('add', data)
+    })
+})
+
+app.get('/cities', function (req, res) {
+  model.getData(data => {
+      res.render('cities',data)
+  })
+})
+
+app.post('/users/create', function (req,res){
+  model.getData( data =>{
+    data.users.push(req.body)
+    model.writeData(data);
+    res.redirect('../users')
+  })
+})
+
+app.post('/users/edit', function (req,res){
+  model.getData( data =>{
+    console.log(req.body.id)
+    data.users.splice(Number(req.body.id-1),1,req.body)
+    model.writeData(data);
+    res.redirect('../users')
+  })
+})
+
+app.get('/users/edit/:id', function (req, res) {
+  
+  model.getData( data =>{
+    for (let i = 0 ; i<data.users.length ; i++){
+       
+        if(data.users[i].id == req.params.id){
+          res.render('edit',data.users[i])
+        }
+    }
+  })  
+})
+
+app.get('/users/delete/:id', function (req, res) {
+  
+  model.getData( data =>{
+    let deleteUser ;
+    for (let i = 0 ; i<data.users.length ; i++){
+       
+        if(data.users[i].id == req.params.id){
+          deleteUser = i;
+        }
+    }
+    data.users.splice(Number(deleteUser),1)
+    model.writeData(data);
+    res.redirect('/users')
+  })  
+})
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
+})
