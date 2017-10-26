@@ -1,3 +1,73 @@
+const express = require('express');
+const bodyParser = require('body-parser')
+const Model = require('./model/model');
+const User = require('./model/users');
+const City = require('./model/cities')
+
+const app = express()
+const model = new Model("./files/data.json")
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
+
+
+
+
+app.set('views', './views') // specify the views directory
+app.set('view engine', 'ejs');
+
+app.get('/', function(req, res)
+{
+  res.render('home');
+});
+
+app.get('/users', function(req, res)
+{
+  model.readFile(function(data)
+  {
+    res.render('users', JSON.parse(data));
+  });
+});
+
+app.get('/cities', function(req, res)
+{
+  model.readFile(function(data)
+  {
+    res.render('cities', JSON.parse(data));
+  });
+});
+
+app.get('/users/add', function(req, res)
+{
+  res.render('adduser');
+  // console.log("masuk users add", req.body);
+});
+
+app.post('/users/add/simpanuser', function(req, res)
+{
+  model.readFile(function(data)
+  {
+    let allData = JSON.parse(data);
+    let obj = {id : 4, username : req.body.username, password : req.body.password, email : req.body.email}
+    allData.users.push(obj)
+    model.writeFile(allData)
+  });
+  res.redirect('/users')
+});
+
+
+app.listen(3000, function()
+{
+  console.log("running on port 3000");
+});
+
+
+
+
+
+
 /** EXPRESS FROM SCRATCH V.0
 ---------------------------
 Buatlah sebuah aplikasi sederhana menggunakan Express JS
