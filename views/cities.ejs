@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Citi's Table</title>
+</head>
+<body>
+<%let lastIdx = 0%>
+	<table>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Province</th>
+			<th>Action</th>
+		</tr>
+		<%objCities.forEach((city, index)=>{
+			lastIdx = city.id+1%>
+		<tr>
+			<td><%=city.id%></td>
+			<td><%=city.name%></td>
+			<td><%=city.province%></td>
+			<td>
+				<a href="/editCity/<%=city.id%>">Edit</a>
+				<a href="/deleteCity/<%=city.id%>">Delete</a>
+			</td>
+		</tr>
+		<%})%>
+	</table>
+	<h3>Add City</h3>
+	<form action="/addCity/<%=lastIdx%>" method="post">
+		<input type="text" name="name" placeholder="City Name">
+		<input type="text" name="province" placeholder="Province">
+		<input type="submit" value="Submit">		
+	</form>
+
+</body>
+</html>
