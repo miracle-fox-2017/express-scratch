@@ -44,3 +44,50 @@ URL --> http://localhost:3000/users/add (untuk routing add users)
 URL --> http://localhost:3000/users/edit/:id (untuk routing edit users dengan mengirimkan id data)
 URL --> http://localhost:3000/users/delete/:id (untuk routing delete users dengan mengirimkan id data)
 **/
+const fs = require('fs')
+const express = require('express')
+const Model = require('./model/model')
+const bodyParser = require('body-parser')
+const app = express()
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
+let model = new Model()
+
+app.set('views', './views') // specify the views directory
+app.set('view engine', 'ejs') // register the template engine
+
+app.get('/', function (req, res) {
+  res.render('home')
+})
+
+app.get('/users', function (req, res) {
+  model.getData(data => {
+      res.render('users', data)
+  })
+})
+
+app.get('/users/add', function (req, res) {
+    model.getData(data =>{
+      res.render('add', data)
+    })
+})
+
+app.get('/cities', function (req, res) {
+  model.getData(data => {
+      res.render('cities',data)
+  })
+})
+
+app.post('/users/create', function (req,res){
+  console.log(req.body)
+  model.getData( data =>{
+    data.users.push(req.body)
+    model.writeData(data);
+    res.redirect('/users')
+  })
+})
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
+})

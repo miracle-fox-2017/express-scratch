@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ADD</title>
+</head>
+<body>	
+	<h1> ADD User </h1>
+	<div class="add">
+		<form action="/users/create" method="post">
+			<input type="hidden" name="id" value= <%= users.length+1 %> <br>
+  			USERNAME:<br>
+	  		<input type="text" name="username"><br>
+  			PASSWORD:<br>
+  			<input type="password" name="password"><br>
+  			EMAIL:<br>
+  			<input type="text" name="email"><br> 
+  			<input type="submit" value="kirim"> 				  		
+		</form>		
+	</div>	
+</body>
+</html>
