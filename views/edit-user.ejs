@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <title>
+        Edit User
+    </title>
+</head>
+
+<body>
+    <header>
+        <h3>
+            Edit Data User
+        </h3>
+    </header>
+    <a href="/">Home</a>
+    <div class="menu-edit">
+
+        <form action="/users/edit/<%= dataUser.id%>" method="POST">
+            Username : <br>
+            <input type="text" name="username" value="<%= dataUser.username%>" /> <br> Password : <br>
+            <input type="text" name="password" value="<%= dataUser.password%>" /> <br> Email : <br>
+            <input type="text" name="email" value="<%= dataUser.email %>"> <br>
+            <br>
+            <input type="submit" value="Save" />
+        </form>
+    </div>
+</body>
+
+</html>

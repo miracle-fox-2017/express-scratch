@@ -1,46 +1,97 @@
-/** EXPRESS FROM SCRATCH V.0
----------------------------
-Buatlah sebuah aplikasi sederhana menggunakan Express JS
-- Release 0
-Buatlah 3 routing yang memenuhi spesifikasi berikut ini :
-URL --> http://localhost:3000/
-menampilkan "Welcome to Express My App [Nama_Kalian]"
-URL --> http://localhost:3000/users
-menampilkan data users berupa object. di release ini object dibuat manual,
-silakan menentukan property dan value dari object tersebut asalkan relevan dengan user
-URL --> http://localhost:3000/cities
-menampilkan data cities berupa object.
-silakan menentukan property dan value dari object cities juga untuk release 0 ini.
+const express = require('express')
+const bodyParser = require('body-parser')
+const app = express()
+const User = require('./models/modelUser')
+const City = require('./models/modelCity')
+let user = new User()
+let city = new City()
+app.set('view engine', 'ejs');
 
-- Release 1
-Buatlah file data.json yang isinya ada 2 object yaitu users dan cities.
-contoh :
-{
-  users: [{
-    username: 'hacktiv8',
-    password: 'hacktiv8',
-    email: 'hactiv8@hacktiv8.com'
-  }, {
-    username: 'johndoe',
-    password: '12345',
-    email: 'john@doe.com'
-  }],
-  cities: [{
-    name: 'Jakarta'
-    province: 'DKI Jakarta'
-  }, {
-    name: 'Bandung'
-    province: 'Jawa Barat'
-  }]
-}
-Setelah itu, buatlah code untuk membaca file dari data.json
-sehingga routing yang tadinya menampilkan object yang dibuat sendiri,
-sekarang menampilkan data yang ada di-file data.json menggunakan view engine .ejs
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
 
-Release 2
-Buatlah routing untuk add, edit dan delete untuk /users dan /cities
-contoh:
-URL --> http://localhost:3000/users/add (untuk routing add users)
-URL --> http://localhost:3000/users/edit/:id (untuk routing edit users dengan mengirimkan id data)
-URL --> http://localhost:3000/users/delete/:id (untuk routing delete users dengan mengirimkan id data)
-**/
+// parse application/json
+app.use(bodyParser.json())
+
+app.listen(3000, function () {
+  console.log("Haloooooo")
+})
+
+app.get('/', function (req, res) {
+  res.render('home')
+})
+
+app.get('/users', function (req, res) {
+  user.readData(() => {
+    let dataUser = user.getDataUser()
+    // console.log(dataUser[0].users)
+    res.render('user', { dataUser: dataUser[0].users })
+  })
+})
+
+app.get('/cities', function (req, res) {
+  city.readData(() => {
+    let dataCity = city.getDataCity()
+    res.render('city', { dataCity: dataCity[0].cities })
+  })
+})
+
+app.get('/users/add', function (req, res) {
+  res.render('add-user')
+})
+
+app.post('/users/add', function (req, res) {
+  user.saveDataUser(req.body)
+  res.redirect('../users')
+})
+
+app.get('/cities/add', function (req, res) {
+  res.render('add-city')
+})
+
+app.post('/cities/add', function (req, res) {
+  city.saveDataCity(req.body)
+  res.redirect('../cities')
+})
+
+app.get('/users/edit/:id', function (req, res) {
+  user.readData(() => {
+    let dataUser = user.getDatabyId(req.params.id)
+    res.render('edit-user', { dataUser: dataUser })
+  })
+
+})
+
+app.post('/users/edit/:id', function (req, res) {
+  //console.log(req.params.id, req.body)
+  user.saveDataById(req.params.id, req.body)
+  res.redirect('../../users')
+})
+app.get('/cities/edit/:id', function (req, res) {
+  city.readData(() => {
+    let dataCity = city.getDatabyId(req.params.id)
+    res.render('edit-city', { dataCity: dataCity })
+  })
+
+})
+
+app.post('/cities/edit/:id', function (req, res) {
+  //console.log(req.params.id, req.body)
+  city.saveDataById(req.params.id, req.body)
+  res.redirect('../../cities')
+})
+
+app.get('/users/delete/:id', function (req, res) {
+  user.deleteData(req.params.id)
+  res.redirect('../../users')
+})
+
+app.get('/cities/delete/:id', function (req, res) {
+  city.deleteData(req.params.id)
+  res.redirect('../../cities')
+})
+
+
+
+
+

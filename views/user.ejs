@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <title>
+        Data User
+    </title>
+</head>
+
+<body>
+    <header>
+        <h3>Data User</h3>
+    </header>
+    <a href="/">Home</a>
+    <div class="menu-table">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Email</th>
+            </tr>
+            <% dataUser.forEach(function(row){%>
+                <tr>
+                    <td>
+                        <%=row.id %>
+                    </td>
+                    <td>
+                        <%=row.username %>
+                    </td>
+                    <td>
+                        <%=row.password%>
+                    </td>
+                    <td>
+                        <%=row.email %>
+                    </td>
+                    <td>
+                        <a href="/users/edit/<%=row.id%>">Edit</a>
+                    </td>
+                    <td>
+                        <a href="/users/delete/<%=row.id%>">Delete</a>
+                    </td>
+                </tr>
+                <%})%>
+        </table>
+        <a href="/users/add"> Add User</a>
+    </div>
+</body>
+
+</html>

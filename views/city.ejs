@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <title>Data City</title>
+</head>
+
+<body>
+    <header>
+        <h3>
+            Data City
+        </h3>
+    </header>
+    <a href="/">Home</a>
+    <div class="main-table">
+        <table>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Province
+                </th>
+            </tr>
+            <% dataCity.forEach(function(row){ %>
+                <tr>
+                    <td>
+                        <%= row.id%>
+                    </td>
+                    <td>
+                        <%= row.name%>
+                    </td>
+                    <td>
+                        <%= row.province%>
+                    </td>
+                    <td>
+                        <a href="/cities/edit/<%= row.id%>"> Edit</a>
+                    </td>
+                    <td>
+                        <a href="/cities/delete/<%= row.id%>">Delete</a>
+                    </td>
+                </tr>
+                <%})%>
+        </table>
+        <a href="/cities/add"> Add City</a>
+
+    </div>
+</body>
+
+</html>
