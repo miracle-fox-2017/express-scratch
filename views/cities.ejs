@@ -1,0 +1,15 @@
+<h3>Add City</h3>
+<form action="/cities/add" method="POST">
+  <input type="text" name="name" placeholder="city"/> <br/>
+  <input type="text" name="province" placeholder="province"/> <br/>
+  <button type="submit">SUBMIT CITY</button>
+</form>
+
+<h3>City</h3>
+<ul>
+  <% cities.forEach(city => { %>
+    <li>
+      <%= `City: ${city.name}, Province: ${city.province}`; %>
+    </li>
+  <% }); %>
+</ul>
