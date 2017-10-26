@@ -10,7 +10,7 @@ router.get('/', (req, res)=> {
 
 router.post('/', (req, res)=>{
   Cities.addCities(req.body,()=>{
-    res.redirect('../cities')
+    res.redirect('/cities')
   })
 })
 
@@ -22,13 +22,13 @@ router.get('/edit/:id',(req, res)=>{
 
 router.post('/edit/:id',(req, res)=>{
   Cities.editCities(req.params.id, req.body, ()=>{
-    res.redirect('./cities')
+    res.redirect('/cities')
   })
 })
 
 router.get('/delete/:id', (req, res)=>{
   Cities.deleteCity(req.params.id, ()=>{
-    res.redirect('cities')
+    res.redirect('/cities')
   })
 })
 module.exports = router;

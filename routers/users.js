@@ -10,7 +10,7 @@ router.get('/', (req, res)=> {
 
 router.post('/', (req, res)=>{
   Users.addUsers(req.body,()=>{
-    res.redirect('../users')
+    res.redirect('/users')
   })
 })
 
@@ -22,13 +22,13 @@ router.get('/edit/:id',(req, res)=>{
 
 router.post('/edit/:id',(req, res)=>{
   Users.editUsers(req.params.id, req.body, ()=>{
-    res.redirect('./users')
+    res.redirect('/users')
   })
 })
 
 router.get('/delete/:id', (req, res)=>{
   Users.deleteCity(req.params.id, ()=>{
-    res.redirect('users')
+    res.redirect('/users')
   })
 })
 module.exports = router;
