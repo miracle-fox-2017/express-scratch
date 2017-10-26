@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>USERS</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>USERNAME</th>
+        <th>PASSWORD</th>
+        <th>EMAIL</th>
+      </tr>
+      <% for(let x = 0; x < dataUsers.length; x++) { %>
+        <tr>
+          <td><%= dataUsers[x].id %></td>
+          <td><%= dataUsers[x].username %></td>
+          <td><%= dataUsers[x].password %></td>
+          <td><%= dataUsers[x].email %></td>
+          <td><a href="/users/delete/<%= dataUsers[x].id %>">delete</a></td>
+        </tr>
+      <% } %>
+    </table>
+    <a href="/">HOME</a>
+  </body>
+</html>

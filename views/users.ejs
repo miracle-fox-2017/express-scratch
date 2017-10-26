@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <style>
+  body {margin:0;}
+
+  .topnav {
+    overflow: hidden;
+    background-color: #333;
+  }
+
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  table, th, td {
+    border: 1px solid black;
+  }
+  </style>
+    <meta charset="utf-8">
+    <title>USERS</title>
+  </head>
+  <body>
+    <div class="topnav">
+    <a href="/">HOME</a>
+    <a class="active" href="/users">USER</a>
+    <a href="/cities">CITIES</a>
+  </div>
+  <div style="padding-left:50px">
+    <br>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>USERNAME</th>
+        <th>PASSWORD</th>
+        <th>EMAIL</th>
+      </tr>
+      <% for(let x = 0; x < dataUsers.length; x++) { %>
+        <tr>
+          <td><%= dataUsers[x].id %></td>
+          <td><%= dataUsers[x].username %></td>
+          <td><%= dataUsers[x].password %></td>
+          <td><%= dataUsers[x].email %></td>
+          <!-- <td><a href="/users/delete/<%= dataUsers[x].id %>">delete</a></td> -->
+        </tr>
+      <% } %>
+    </table>
+    <br>
+    <a href="/users/add">ADD USERS</a>
+    <a href="/users/delete">DELETE USERS</a>
+  </div>
+  </body>
+</html>
