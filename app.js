@@ -28,6 +28,14 @@ app.get('/users', function(req, res) {
 
 })
 
+app.get('/users/delete/:id', function(req, res) {
+
+  Model.hapusDataUsers(req.params.id)
+
+  res.redirect('/users')
+
+})
+
 app.get('/cities', function(req, res) {
   Model.tampilkanDataCities(function(dataCities) {
     res.render('cities', {data: dataCities})
@@ -77,7 +85,40 @@ app.post('/cities/edit/:id', function(req, res) {
 
 })
 
+app.get('/users/add', function(req, res) {
+  res.render('usersadd')
+})
 
+app.post('/users/add', function(req, res) {
+  Model.getLastIdUsers(function(dataId) {
+
+    var objData = {
+      id: +dataId + 1,
+      username: req.body.username,
+      password: req.body.password,
+      email: req.body.email
+    }
+
+    Model.tambahkanDataUsers(objData)
+    res.redirect('/users/add')
+  })
+})
+
+app.get('/users/edit/:id', function(req, res) {
+
+  Model.tampilkanDataUsersById(req.params.id, function(dataUsersById) {
+    res.render('usersedit', {data: dataUsersById})
+  })
+
+})
+
+app.post('/users/edit/:id', function(req, res) {
+
+  Model.editDataUsers(req.params.id, req.body)
+  console.log(req.body);
+  res.redirect('/users')
+
+})
 
 app.listen(3000, function() {
   console.log('Example app listening on port 3000!')

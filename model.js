@@ -41,7 +41,7 @@ class Model {
 
     this.parsingData(function(data) {
 
-      var dataLastId = data[0].cities[data[0].cities.length - 1].id
+      var dataLastId = data[0].users[data[0].users.length - 1].id
 
       callback(dataLastId)
 
@@ -59,6 +59,62 @@ class Model {
 
     })
 
+  }
+
+  static tambahkanDataUsers(obj) {
+
+    this.parsingData(function(data) {
+
+      data[0].users.push(obj)
+
+      fs.writeFile('data.json', JSON.stringify(data))
+
+    })
+
+  }
+
+  static hapusDataUsers(id) {
+
+    this.parsingData(function(data) {
+
+      for(var i = 0; i < data[0].users.length; i++) {
+        if(data[0].users[i].id == id) {
+          data[0].users.splice(i, 1)
+        }
+      }
+
+      fs.writeFile('data.json', JSON.stringify(data))
+
+    })
+
+  }
+
+  static tampilkanDataUsersById(id, callback) {
+    this.parsingData(function(data) {
+
+      for(var i = 0; i < data[0].users.length; i++) {
+        if(data[0].users[i].id == id) {
+          var dataUsersById = data[0].users[i]
+        }
+      }
+
+      callback(dataUsersById)
+
+    })
+  }
+
+  static editDataUsers(id, dataobj) {
+    this.parsingData(function(data) {
+
+      for(var i = 0; i < data[0].users.length; i++) {
+        if(data[0].users[i].id == id) {
+          data[0].users[i].username = dataobj.username
+          data[0].users[i].password = dataobj.password
+          data[0].users[i].email = dataobj.email
+        }
+      }
+      fs.writeFile('data.json', JSON.stringify(data))
+    })
   }
 
   static tampilkanDataCities(callback) {

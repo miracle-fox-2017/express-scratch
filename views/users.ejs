@@ -5,10 +5,23 @@
     <title></title>
   </head>
   <body>
-    <%for(var i = 0; i < data.length; i++) {%>
-    <p>username: <%=data[i].username%></p>
-    <p>password: <%=data[i].password%></p>
-    <p>email: <%=data[i].email%></p>
-    <%}%>
+    <table>
+      <tr>
+        <td>id</td>
+        <td>username</td>
+        <td>password</td>
+        <td>email</td>
+      </tr>
+      <%for(var i = 0; i < data.length; i++) {%>
+        <tr>
+          <td><%=data[i].id%></td>
+          <td><%=data[i].username%></td>
+          <td><%=data[i].password%></td>
+          <td><%=data[i].email%></td>
+          <td><a href="/users/edit/<%=data[i].id%>">edit</a></td>
+          <td><a href="/users/delete/<%=data[i].id%>">delete</a></td>
+        </tr>
+        <%}%>
+    </table>
   </body>
 </html>
