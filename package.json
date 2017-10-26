@@ -1,0 +1,19 @@
+{
+  "name": "express-scratch",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": "git@github.com:miracle-fox-2017/express-scratch.git",
+  "author": "Yofriadi Yahya <yofriadiyahya@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "ejs": "^2.5.7",
+    "nodemon": "^1.12.1"
+  }
+}

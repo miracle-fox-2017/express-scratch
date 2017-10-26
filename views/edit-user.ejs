@@ -1,0 +1,15 @@
+<h3>User Data</h3>
+
+<%= `id: ${id}` %> <br/>
+<%= `username: ${username}` %> <br/>
+<%= `password: ${password} (belom di hash)` %> <br/>
+<%= `email: ${email}` %>
+
+<h3>Edit Data</h3>
+<form action="/users/edit" method="POST">
+  <input type="hidden" name="id" value="<%= id %>"/>
+  <input type="text" name="username" placeholder="username"/> <br/>
+  <input type="password" name="password" placeholder="password"/> <br/>
+  <input type="email" name="email" placeholder="email"/> <br/>
+  <button>SUBMIT EDIT</button>
+</form>

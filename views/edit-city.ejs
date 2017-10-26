@@ -1,0 +1,13 @@
+<h3>City Data</h3>
+
+<%= `id: ${id}` %> <br/>
+<%= `name: ${name}` %> <br/>
+<%= `province: ${province}` %>
+
+<h3>Edit Data</h3>
+<form action="/users/edit" method="POST">
+  <input type="hidden" name="id" value="<%= id %>"/>
+  <input type="text" name="name" placeholder="city"/> <br/>
+  <input type="text" name="province" placeholder="province"/> <br/>
+  <button>SUBMIT EDIT</button>
+</form>

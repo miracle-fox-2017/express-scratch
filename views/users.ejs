@@ -1,0 +1,16 @@
+<h3>Add User</h3>
+<form action="/users/add" method="POST">
+  <input type="text" name="username" placeholder="username"/> <br/>
+  <input type="password" name="password" placeholder="password"/> <br/>
+  <input type="email" name="email" placeholder="email"/> <br/>
+  <button>SUBMIT USER</button>
+</form>
+
+<h3>User</h3>
+<ul>
+  <% users.forEach(user => { %>
+    <li>
+      <%= `${user.username}: ${user.email}`; %>
+    </li>
+  <% }); %>
+</ul>
