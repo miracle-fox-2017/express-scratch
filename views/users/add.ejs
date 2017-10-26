@@ -1,0 +1,19 @@
+<%-include('../partials/head')%>
+<%- include('../partials/menu')%>
+
+	<h3>Insert Data User Baru</h3>
+<form action="/users/add" method = "POST">
+  Username:<br>
+  <input type="text" name="username">
+  <br>
+  Password:<br>
+  <input type="text" name="password">
+  <br>
+  Email:<br>
+  <input type="text" name="email">
+  <br><br>
+  <input type="submit" value="Submit">
+</form> 
+
+
+<%-include('../partials/footer')%>
