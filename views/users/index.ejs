@@ -24,6 +24,7 @@
           <th>Username</th>
           <th>Password</th>
           <th>Email</th>
+          <th>Options</th>
         </tr>
       </head>
       <tbody>
@@ -33,9 +34,15 @@
           <td><%= row.username %></td>
           <td><%= row.password %></td>
           <td><%= row.email %></td>
+          <td>
+            <a href="/users/edit/<%= row.id %>">Edit</a>
+            <a href="/users/delete/<%= row.id %>">Delete</a>
+          </td>
         </tr>
         <% }) %>
       </tbody>
     </table>
+
+    <h4><a href="/users/add">Add User</a></h4>
   </body>
 </html>
