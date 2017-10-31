@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="../resource/bulma.min.css" type="text/css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../resource/style.css">
+
+  <title>My App</title>
+</head>
+<body>
+
+  <ul>
+    <li><a class="active" href="/">Home</a></li>
+    <li><a href="/users">Users</a></li>
+    <li><a href="/cities">Cities</a></li>
+  </ul>
+
+  <div class="container">
+    <h2>add cities</h2>
+    <form action="/cities/add" method="post">
+      Name:<br>
+      <input type="text" name="name_cities" value="">
+      <br>
+      Province:<br>
+      <input type="text" name="province_cities" value="">
+      <br><br>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+  <div style="text-align: center;margin-top:5%;">
+        <a style="text-decoration: none;" href="/cities">show all Cities</a>
+  </div>
+
+</body>
+</html>
