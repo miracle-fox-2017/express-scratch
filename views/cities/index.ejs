@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Cities Page</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th><a href="/">Home</a></th>
+          <th><a href="/users">Users</a></th>
+          <th><a href="/cities">Cities</a></th>
+        </tr>
+      </head>
+    </table><br>
+
+    <table border="1px">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Province</th>
+          <th>Options</th>
+        </tr>
+      </head>
+      <tbody>
+        <% data.forEach(row => { %>
+        <tr>
+          <td><%= row.id %></td>
+          <td><%= row.name %></td>
+          <td><%= row.province %></td>
+          <td>
+            <a href="/cities/edit/<%= row.id %>">Edit</a>
+            <a href="/cities/delete/<%= row.id %>">Delete</a>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+    <h4><a href="/cities/add">Add City</a></h4>
+  </body>
+</html>

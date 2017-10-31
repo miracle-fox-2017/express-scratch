@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Users Page</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th><a href="/">Home</a></th>
+          <th><a href="/users">Users</a></th>
+          <th><a href="/cities">Cities</a></th>
+        </tr>
+      </head>
+    </table><br>
+
+    <table border="1px">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Password</th>
+          <th>Email</th>
+          <th>Options</th>
+        </tr>
+      </head>
+      <tbody>
+        <% data.forEach(row => { %>
+        <tr>
+          <td><%= row.id %></td>
+          <td><%= row.username %></td>
+          <td><%= row.password %></td>
+          <td><%= row.email %></td>
+          <td>
+            <a href="/users/edit/<%= row.id %>">Edit</a>
+            <a href="/users/delete/<%= row.id %>">Delete</a>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+    <h4><a href="/users/add">Add User</a></h4>
+  </body>
+</html>
