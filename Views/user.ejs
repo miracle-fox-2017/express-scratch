@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Users</title>
+    <style media="screen">
+    h2 {
+      text-align: center;
+    }
+    table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    }
+    </style>
+  </head>
+  <body>
+      <div>
+        <h2>Users</h2>
+        <table>
+          <tr>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Password</th>
+    <th>Actions</th>
+
+
+  </tr>
+          <% for(var i=0; i < dataUser.users.length; i++) { %>
+   <tr>
+     <td><%= dataUser.users[i].username %></td>
+     <td><%= dataUser.users[i].email %></td>
+     <td><%= dataUser.users[i].password %></td>
+     <td><h4><a href="/users/add">Add User</a></h4>
+     <h4><a href="/users/edit">Edit User</a></h4>
+     <h4><a href="/users/delete">Delete User</a></h4></td>
+   </tr>
+<% } %>
+      </table>
+      </div>
+  </body>
+</html>
