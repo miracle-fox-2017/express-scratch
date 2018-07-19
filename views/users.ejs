@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <%include ./partials/head%>
+    <title>Users</title>
+  </head>
+  <body>
+      <%include ./partials/menu%>
+      <div class="uk-section">
+          <div class="uk-container">
+            <table class="uk-table uk-table-hover uk-table-divider">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>Email</th>
+                        <th colspan="2">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <%users.forEach(dataUsers=>{%>
+                    <tr>
+                        <td><%=dataUsers.id%></td>
+                        <td><%=dataUsers.username%></td>
+                        <td><%=dataUsers.password%></td>
+                        <td><%=dataUsers.email%></td>
+                        <td><a href="users/edit/<%=dataUsers.id%>">Edit</a></td>
+                        <td><a href="users/delete/<%=dataUsers.id%>">Delete</a></td>
+                    </tr>
+                <%})%>
+                </tbody>
+            </table>
+            <form action="/users" method="post">
+                  <div class="uk-margin">
+                      <input class="uk-input uk-form-width-medium" name="username" type="text" placeholder="Username">
+                  </div>
+                  <div class="uk-margin">
+                      <input class="uk-input uk-form-width-medium" name="password" type="text" placeholder="Password">
+                  </div>
+                  <div class="uk-margin">
+                      <input class="uk-input uk-form-width-medium" name="email" type="email" placeholder="Email">
+                  </div>
+                  <p uk-margin>
+                      <button class="uk-button uk-button-default uk-button-small">Simpan</button>
+                  </p>
+            </form>
+          </div>
+      </div>
+  </body>
+</html>

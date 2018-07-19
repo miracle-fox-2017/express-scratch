@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <%include ./partials/head%>
+    <title>Users</title>
+  </head>
+  <body>
+    <%include ./partials/menu%>
+      <div class="uk-section">
+          <div class="uk-container">
+            <form action="/users/edit/<%=id%>" method="post">
+                  <div class="uk-margin">
+                      <input class="uk-input uk-form-width-medium" value="<%=username%>" name="username" type="text">
+                  </div>
+                  <div class="uk-margin">
+                      <input class="uk-input uk-form-width-medium" value="<%=password%>" name="password" type="text">
+                  </div>
+                  <div class="uk-margin">
+                      <input class="uk-input uk-form-width-medium" value="<%=email%>" name="email" type="email">
+                  </div>
+                  <p uk-margin>
+                      <button class="uk-button uk-button-default uk-button-small">Edit</button>
+                  </p>
+            </form>
+          </div>
+      </div>
+  </body>
+</html>
